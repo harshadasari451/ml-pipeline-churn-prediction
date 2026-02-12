@@ -66,8 +66,8 @@ airflow/*.pid
 airflow/airflow.cfg
 airflow/webserver_config.py
 
-# Models
-models/
+# Model artifacts (not source code)
+/models/
 *.h5
 *.pt
 *.pth
