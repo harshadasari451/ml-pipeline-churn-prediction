@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-> A production-grade, end-to-end machine learning pipeline for customer churn prediction demonstrating ML Engineering and MLOps best practices. **100% free** - uses only open-source tools and local deployment.
+> A production-grade, end-to-end machine learning pipeline for customer churn prediction demonstrating ML Engineering and MLOps best practices. uses only open-source tools and local deployment.
 
 ## 📋 Table of Contents
 - [Project Overview](#-project-overview)
