@@ -188,16 +188,18 @@ class FeatureEngineer:
             df['TenureBin'] = pd.cut(
                 df['tenure'], 
                 bins=[0, 12, 24, 48, 100], 
-                labels=[0, 1, 2, 3]
-            ).astype(int)
+                labels=[0, 1, 2, 3],
+                include_lowest=True
+            ).cat.codes
         
         # Monthly charges bins
         if 'MonthlyCharges' in df.columns:
             df['ChargesBin'] = pd.cut(
                 df['MonthlyCharges'],
                 bins=[0, 35, 65, 90, 150],
-                labels=[0, 1, 2, 3]
-            ).astype(int)
+                labels=[0, 1, 2, 3],
+                include_lowest=True
+            ).cat.codes
         
         logger.info("Created derived features")
         return df

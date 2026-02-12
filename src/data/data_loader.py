@@ -136,8 +136,8 @@ class DataLoader:
             (data['tenure'] > 48).astype(int) * 0.2
         )
         churn_probability = np.clip(churn_probability, 0, 0.8)
-        data['Churn'] = (np.random.random(n_samples) < churn_probability).astype(int)
-        data['Churn'] = data['Churn'].map({0: 'No', 1: 'Yes'})
+        churn_binary = (np.random.random(n_samples) < churn_probability).astype(int)
+        data['Churn'] = ['Yes' if c == 1 else 'No' for c in churn_binary]
         
         df = pd.DataFrame(data)
         logger.info(f"Generated dataset with {len(df)} rows and {len(df.columns)} columns")
