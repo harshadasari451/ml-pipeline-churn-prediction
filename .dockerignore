@@ -1,0 +1,56 @@
+# Python
+*.pyc
+__pycache__/
+*.egg-info/
+
+# Data
+data/
+*.csv
+*.pkl
+*.joblib
+
+# Models
+models/
+mlflow/mlruns/
+mlflow/models/
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Reports
+reports/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+!README.md
+
+# CI/CD
+.github/
