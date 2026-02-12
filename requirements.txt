@@ -23,7 +23,7 @@ great-expectations==0.17.15
 feast[sqlite]==0.34.1
 
 # Airflow for Orchestration (updated for security patches)
-apache-airflow==2.10.1
+apache-airflow==3.1.6
 apache-airflow-providers-docker==3.7.2
 
 # Visualization

@@ -22,7 +22,7 @@ This document tracks security updates made to the project dependencies.
 
 **Patched in**: MLflow 3.5.0
 
-#### 2. Apache Airflow: 2.7.1 → 2.10.1
+#### 2. Apache Airflow: 2.7.1 → 3.1.6
 **Reason**: Multiple security issues including:
 - Proxy credentials leaking in task logs
 - Execution with unnecessary privileges
@@ -31,7 +31,7 @@ This document tracks security updates made to the project dependencies.
 - Pickle deserialization vulnerability in XComs
 - Exposure of sensitive information
 
-**Patched in**: Apache Airflow 2.10.1
+**Patched in**: Apache Airflow 3.1.6
 
 #### 3. FastAPI: 0.103.1 → 0.109.1
 **Reason**: 
@@ -57,7 +57,7 @@ pip list | grep -E "(mlflow|apache-airflow|fastapi|python-multipart)"
 
 Expected output:
 ```
-apache-airflow           2.10.1
+apache-airflow           3.1.6
 fastapi                  0.109.1
 mlflow                   3.5.0
 python-multipart         0.0.22
@@ -109,7 +109,7 @@ If you discover a security vulnerability in this project:
 
 - **2026-02-12**: Updated all vulnerable dependencies to patched versions
   - MLflow: 2.7.1 → 3.5.0
-  - Apache Airflow: 2.7.1 → 2.10.1
+  - Apache Airflow: 2.7.1 → 3.1.6
   - FastAPI: 0.103.1 → 0.109.1
   - python-multipart: 0.0.6 → 0.0.22
 
