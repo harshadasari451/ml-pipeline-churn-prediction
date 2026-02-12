@@ -1,0 +1,119 @@
+# Data Configuration
+data:
+  raw_data_path: "data/raw/churn_data.csv"
+  processed_data_path: "data/processed/processed_churn_data.pkl"
+  train_path: "data/processed/train.pkl"
+  val_path: "data/processed/val.pkl"
+  test_path: "data/processed/test.pkl"
+  test_size: 0.2
+  val_size: 0.1
+  random_state: 42
+  n_samples: 7043  # Number of synthetic samples to generate
+
+# Feature Engineering
+features:
+  numerical:
+    - tenure
+    - MonthlyCharges
+    - TotalCharges
+  categorical:
+    - gender
+    - SeniorCitizen
+    - Partner
+    - Dependents
+    - PhoneService
+    - MultipleLines
+    - InternetService
+    - OnlineSecurity
+    - OnlineBackup
+    - DeviceProtection
+    - TechSupport
+    - StreamingTV
+    - StreamingMovies
+    - Contract
+    - PaperlessBilling
+    - PaymentMethod
+  target: "Churn"
+
+# Model Configuration
+model:
+  algorithms:
+    - logistic_regression
+    - random_forest
+    - xgboost
+  
+  logistic_regression:
+    max_iter: 1000
+    random_state: 42
+    class_weight: "balanced"
+  
+  random_forest:
+    n_estimators: [100, 200]
+    max_depth: [10, 20, None]
+    min_samples_split: [2, 5]
+    min_samples_leaf: [1, 2]
+    random_state: 42
+    class_weight: "balanced"
+  
+  xgboost:
+    n_estimators: [100, 200]
+    max_depth: [3, 5, 7]
+    learning_rate: [0.01, 0.1, 0.3]
+    random_state: 42
+    eval_metric: "logloss"
+  
+  tuning:
+    cv_folds: 5
+    n_iter: 10  # For RandomizedSearchCV
+    scoring: "f1"
+
+# MLflow Configuration
+mlflow:
+  tracking_uri: "file:./mlflow/mlruns"
+  experiment_name: "churn_prediction"
+  model_name: "churn_classifier"
+  registry_uri: "file:./mlflow/models"
+
+# Feast Feature Store
+feast:
+  project: "churn_prediction"
+  provider: "local"
+  online_store:
+    type: "sqlite"
+    path: "data/online_store.db"
+  offline_store:
+    type: "file"
+  entity_key_serialization_version: 2
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+  workers: 4
+  title: "Churn Prediction API"
+  description: "ML API for customer churn prediction"
+  version: "1.0.0"
+
+# Airflow Configuration
+airflow:
+  dag_id: "ml_pipeline_churn_prediction"
+  schedule_interval: "@weekly"
+  retries: 2
+  retry_delay_minutes: 5
+  email_on_failure: false
+  email_on_retry: false
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/ml_pipeline.log"
+
+# Performance Metrics Thresholds
+metrics:
+  min_accuracy: 0.75
+  min_f1_score: 0.70
+  min_roc_auc: 0.80
+  min_precision: 0.65
+  min_recall: 0.65
